@@ -4,6 +4,7 @@ import spacy
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
 from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("C:\\Users\\nickl\\AppData\\Local\\Temp\\MicrosoftEdgeDownloads\\09626e46-951c-497f-b6a9-2fbae07b87f6\\LCBO_store_inventory.csv")
 
@@ -43,10 +44,10 @@ df['Price'] = df['Price'].astype(float)
 df['volume_per_dollar'] = df['volume'] / df['Price']
 
 # pull number before /5 and convert to float
-df['rating'] = df['Rating'].str.split('/5').str[0].fillna(0)
+df['rating'] = df['Rating'].str.split('/5').str[0].fillna(0).astype(float)
 
 # rating per volume per dollar
-df['rating_per_volume_per_dollar'] = df['rating'].astype(float) / df['volume_per_dollar']
+df['rating_per_volume_per_dollar'] = df['rating'] / df['volume_per_dollar']
 
 df = df.sort_values(by=['rating_per_volume_per_dollar'], ascending=False)
 
@@ -71,12 +72,26 @@ df['cluster'] = db.labels_
 # Print out the dataframe
 print(df)
 
+# for each cluster plot sorted rating per volume per dollar by beer
+df = df.sort_values(by=['cluster', 'volume_per_dollar', 'rating'], ascending=False)
+# plot
+df[df['cluster'] == 2].plot(x='volume_per_dollar', y='rating', kind='bar', figsize=(20, 10))
+plt.show()
+
+
 # select highest rating per volume per dollar for each cluster
 df = df.sort_values(by=['rating_per_volume_per_dollar'], ascending=False).groupby('cluster').head(1)
 
 # filter on name, inventory, rating, price
 df = df[['Name', 'Producer', 'Style', 'Rating', 'ABV', 'Price', 'Stock', 'Format']].dropna()
 
+# reset and drop index
+df = df.reset_index(drop=True)
+
 # print all columns
 pd.set_option('display.max_columns', None)
 print(df)
+
+# write dataframe as seen to txt
+with open('LCBO_store_inventory.txt', 'w') as f:
+    f.write(df.to_string())

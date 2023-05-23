@@ -1,0 +1,8 @@
+                                            Name                 Producer                    Style  Rating    ABV  Price  Stock              Format
+0  Small Pony Barrel Works Half Remembered Dream  Small Pony Barrel Works      Wild Ale - American  3.98/5   5.0%  15.00      1       750 mL bottle
+1                                   Rochefort 10                Rochefort        Belgian Quadrupel  4.23/5  11.3%   5.90     35       330 mL bottle
+2                               Westmalle Tripel                Westmalle           Belgian Tripel  4.03/5   9.5%   5.60     47       330 mL bottle
+3                                    Rochefort 8                Rochefort  Belgian Strong Dark Ale  4.10/5   9.2%   5.25     41       330 mL bottle
+4                                Chimay Premiere                   Chimay           Belgian Dubbel  3.90/5   7.0%   9.80     11       750 mL bottle
+5                Innis & Gunn Caribbean Rum Cask             Innis & Gunn      Scottish Export Ale  3.57/5   6.8%  17.70      5  6 x 330 mL bottles
+6                               Henderson's Best        Henderson Brewing            Bitter - Best  3.57/5   5.5%   3.50     45          473 mL can
