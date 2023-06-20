@@ -1,0 +1,93 @@
+{
+    "beer_dict": {
+        "IPA": [
+            "IPA - Other",
+            "IPA - American",
+            "IPA - English",
+            "IPA - Session",
+            "IPA - Imperial / Double",
+            "IPA - New England / Hazy",
+            "IPA - Triple",
+            "IPA - Imperial / Double New England / Hazy",
+            "IPA - Quadruple",
+            "IPA - Cold",
+            "IPA - Session / India Session Ale",
+            "IPA - Sour",
+            "IPA - Milkshake",
+            "IPA - White / Wheat"
+        ],
+        "Lager": [
+            "Lager - Japanese Rice",
+            "Lager - American Light",
+            "Lager - American",
+            "Lager - Pale",
+            "Lager - Strong",
+            "Lager - Dortmunder / Export",
+            "Lager - Helles",
+            "Lager - Vienna",
+            "Lager - American Amber / Red",
+            "Lager - Dark",
+            "Lager - Amber",
+            "Lager - Mexican",
+            "Lager - Munich Dunkel",
+            "Non-Alcoholic Beer - Lager"
+        ],
+        "Stout": [
+            "Stout - Irish Dry",
+            "Stout - Foreign / Export",
+            "Stout - Imperial / Double",
+            "Stout - English",
+            "Stout - Milk / Sweet"
+        ],
+        "Pilsner": [
+            "Pilsner - German",
+            "Pilsner - Czech",
+            "Pilsner - Other",
+            "Pilsner - Italian"
+        ],
+        "Belgian": [
+            "Belgian Strong Dark Ale",
+            "Belgian Dubbel",
+            "Belgian Tripel",
+            "Belgian Blonde",
+            "Belgian Quadrupel",
+            "Belgian Strong Golden Ale"
+        ],
+        "Wheat Beer": [
+            "Wheat Beer - Dunkelweizen",
+            "Wheat Beer - Hefeweizen",
+            "Wheat Beer - Witbier / Blanche",
+            "Wheat Beer - American Pale Wheat",
+            "Wheat Beer - Other"
+        ],
+        "Cider": [
+            "Cider - Dry",
+            "Cider - Traditional / Apfelwein",
+            "Cider - Sweet",
+            "Cider - Other Fruit",
+            "Cider - Perry",
+            "Cider - Herbed / Spiced / Hopped",
+            "Cider - Rosé",
+            "Cider"
+        ],
+        "Sour": [
+            "Sour - Flanders Red Ale",
+            "Sour - Other",
+            "Sour - Fruited Gose",
+            "Sour - Fruited",
+            "Sour - Berliner Weisse"
+        ],
+        "Pale Ale": [
+            "Pale Ale - American",
+            "Pale Ale - New England / Hazy",
+            "Pale Ale - Other",
+            "Pale Ale - English",
+            "Non-Alcoholic Beer - Pale Ale"
+        ],
+        "Bock": [
+            "Bock - Single / Traditional",
+            "Bock - Hell / Maibock / Lentebock",
+            "Bock - Doppelbock"
+        ]
+    }
+}

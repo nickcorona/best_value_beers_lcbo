@@ -31,3 +31,4 @@ print(df)
 
 # Close the browser
 driver.quit()
+
