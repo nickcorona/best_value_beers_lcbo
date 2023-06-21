@@ -1,92 +1,56 @@
 import json
-
-import matplotlib.pyplot as plt
 import pandas as pd
-import spacy
-from sklearn import metrics
-from sklearn.cluster import DBSCAN
-from sklearn.preprocessing import StandardScaler
 
+# Load the beer categories configuration
 with open("config.json") as config_file:
     config = json.load(config_file)
 
 beer_dict = config["beer_dict"]
 
+# Load the inventory data
 df = pd.read_csv("D:\\Users\\nickl\\Downloads\\LCBO_store_inventory.csv")
 
-# split Format on 'x' if it exists, rename start as cans and end as number
+# Extract can and size information
 df[["cans", "size"]] = df["Format"].str.split("x", expand=True)
-df.head()
-# if number is null, then replace with cans
-df["size"] = df["size"].fillna(df["cans"])
-df["cans"] = df["cans"].astype(str)
 
-# if can in cans then replace whole value with 1
-df["cans"] = df["cans"].apply(lambda x: "1" if "mL" in x else x)
-df["cans"] = df["cans"].str.replace(" ", "")
-df["cans"] = df["cans"].fillna(1)
-df["cans"] = df["cans"].astype(float)
+# Clean up the cans column
+df["cans"] = df["cans"].str.extract("(\d+)").fillna(1).astype(float)
 
-# extract integers from cans column
-df["size"] = df["size"].str.extract(r"(\d+)")
+# Clean up the size column
+df["size"] = df["size"].str.extract("(\d+)").fillna(df["cans"]).astype(int)
 
-# drop na on size
-df = df.dropna(subset=["size"])
-df["size"] = df["size"].astype(int)
+# Calculate total volume
 df["volume"] = df["cans"] * df["size"]
 
+# Clean up the Price column and convert it to float
+df["Price"] = df["Price"].str.replace("$", "").str.split("\n").str[0].astype(float)
 
-# remove $ from price
-df["Price"] = df["Price"].str.replace("$", "")
+# Calculate price per volume
+df["dollar_per_volume"] = df["Price"] / df["volume"]
 
-# grab before \n if \n exists
-df["Price"] = df["Price"].str.split("\n").str[0]
-
-# convert price to float
-df["Price"] = df["Price"].astype(float)
-
-
-# volume per dollar
-df["volume_per_dollar"] = df["volume"] / df["Price"]
-
-# pull number before /5 and convert to float
+# Extract ratings and convert them to float
 df["rating"] = df["Rating"].str.split("/5").str[0].fillna(0).astype(float)
 
-# rating per volume per dollar
-df["rating_per_volume_per_dollar"] = df["rating"] / df["volume_per_dollar"]
+# Apply a minimum rating threshold
+min_rating = 3.5  # Adjust this to a value that you think is a fair minimum
+df = df[df["rating"] >= min_rating]
 
-df = df.sort_values(by=["rating_per_volume_per_dollar"], ascending=False)
+# Define value metric and calculate it
+weight = 2  # You can adjust this value to give more or less importance to the rating
+df["value"] = (df["rating"] ** weight) / df["dollar_per_volume"]
 
-# replace nan with None in Style
-df["Style"] = df["Style"].fillna("None")
-
-
-# Function to map specific beer type to a general category
-def map_to_category(beer_type):
-    for category, types in beer_dict.items():
-        if beer_type in types:
-            return category
-    return "Other"  # for beer types not covered in the dictionary
-
-
-# Apply the function to the 'beer_style' column
-df["Category"] = df["Style"].apply(map_to_category)
-
-# select highest rating per volume per dollar for each cluster
-df = (
-    df.sort_values(by=["rating_per_volume_per_dollar"], ascending=False)
-    .groupby("Category")
-    .head(1)
+# Map beer types to categories
+df["Category"] = df["Style"].apply(
+    lambda x: next((k for k, v in beer_dict.items() if x in v), "Other")
 )
 
-# filter on name, inventory, rating, price
-df = df[
-    ["Name", "Producer", "Category", "Rating", "Price"]
-].dropna()
+# Select the highest value beer in each category
+df = df.sort_values("value", ascending=False).groupby("Category").first()
 
-# reset and drop index
-df = df.reset_index(drop=True)
+# Filter the DataFrame to include only the necessary columns
+df = df[["Name", "Rating", "Price", "Format"]]
 
-# write dataframe as seen to txt
+# Print and save the DataFrame
 with open("LCBO_store_inventory.txt", "w") as f:
+    print(df)
     f.write(df.to_string())
