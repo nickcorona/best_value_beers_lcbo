@@ -1,27 +1,30 @@
 from selenium import webdriver
 import pandas as pd
 
+#! not working yet
 # Use the path to your chromedriver as the argument
-driver = webdriver.Chrome("D:\\Users\\nickl\\Downloads\\chromedriver_win32\\chromedriver.exe")
+driver = webdriver.Chrome(
+    "D:\\Users\\nickl\\Downloads\\chromedriver_win32\\chromedriver.exe"
+)
 
 # Open the page
-driver.get('https://lcbo.watch/store-inventory/568')
+driver.get("https://lcbo.watch/store-inventory/568")
 
 # Selenium waits for the page to load
 driver.implicitly_wait(10)
 
 # Find the table
-table = driver.find_element_by_xpath('//table')
+table = driver.find_element_by_xpath("//table")
 
 # Get table headers
-headers = [header.text for header in table.find_elements_by_xpath('.//th')]
+headers = [header.text for header in table.find_elements_by_xpath(".//th")]
 
 # Get table rows
-rows = table.find_elements_by_xpath('.//tr')
+rows = table.find_elements_by_xpath(".//tr")
 
 data = []
 for row in rows[1:]:  # Exclude header
-    cols = row.find_elements_by_xpath('.//td')
+    cols = row.find_elements_by_xpath(".//td")
     cols = [ele.text for ele in cols]
     data.append(cols)
 
@@ -31,4 +34,3 @@ print(df)
 
 # Close the browser
 driver.quit()
-
