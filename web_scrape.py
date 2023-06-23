@@ -10,6 +10,26 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+# Centralize selectors
+SELECTORS = {
+    "first_button": "#store_inventory_table > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > button > span.page-size",
+    "second_button": "#store_inventory_table > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > ul > li:nth-child(4) > a",
+    "third_button": "#store_inventory_table > div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-left.btn-group.pull-left > div.export.btn-group > button",
+    "fourth_button": "#store_inventory_table > div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-left.btn-group.pull-left > div.export.btn-group.open > ul > li:nth-child(3) > a",
+}
+
+
+# Function to handle button click
+def click_button(wait, selector, max_attempts=3):
+    for _ in range(max_attempts):
+        try:
+            button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, selector)))
+            button.click()
+            break
+        except StaleElementReferenceException:
+            continue
+
+
 webdriver_service = Service(
     "D:\\Users\\nickl\\Downloads\\chromedriver_win32\\chromedriver.exe"
 )
@@ -25,52 +45,11 @@ driver.get("https://lcbo.watch/store-inventory/568")
 # Wait for the page to load completely
 wait = WebDriverWait(driver, 20)
 
-css_selector = "#store_inventory_table > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > button > span.page-size"
-max_attempts = 3
-
-for _ in range(max_attempts):
-    try:
-        first_button = wait.until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, css_selector))
-        )
-        first_button.click()
-        break
-    except StaleElementReferenceException:
-        continue
-
-
-# Click second button
-second_button = wait.until(
-    EC.element_to_be_clickable(
-        (
-            By.CSS_SELECTOR,
-            "#store_inventory_table > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > ul > li:nth-child(4) > a",
-        )
-    )
-)
-second_button.click()
-
-# Click third button
-third_button = wait.until(
-    EC.element_to_be_clickable(
-        (
-            By.CSS_SELECTOR,
-            "#store_inventory_table > div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-left.btn-group.pull-left > div.export.btn-group > button",
-        )
-    )
-)
-third_button.click()
-
-# Click fourth button
-fourth_button = wait.until(
-    EC.element_to_be_clickable(
-        (
-            By.CSS_SELECTOR,
-            "#store_inventory_table > div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-left.btn-group.pull-left > div.export.btn-group.open > ul > li:nth-child(3) > a",
-        )
-    )
-)
-fourth_button.click()
+# Click buttons
+click_button(wait, SELECTORS["first_button"])
+click_button(wait, SELECTORS["second_button"])
+click_button(wait, SELECTORS["third_button"])
+click_button(wait, SELECTORS["fourth_button"])
 
 # Wait for the download to complete
 time.sleep(5)
