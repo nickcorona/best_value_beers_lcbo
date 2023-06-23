@@ -41,7 +41,7 @@ def web_scrape_lcbo_store_inventory():
                 continue
 
     webdriver_service = Service(
-        "D:\\Users\\nickl\\Downloads\\chromedriver_win32\\chromedriver.exe"
+        "D:\\Users\\nickl\\Downloads\\chromedriver_win32\\chromedriver.exe",
     )
 
     # Set Chrome options
