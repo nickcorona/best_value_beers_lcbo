@@ -1,9 +1,10 @@
 import subprocess
-from email_sender import send_email
+
 import dotenv
-import os
-from utils.env_handler import get_env_var
+
 from constants import TO_EMAIL
+from email_sender import send_email
+from utils.env_handler import get_env_var
 
 # Load environment variables
 dotenv.load_dotenv()
