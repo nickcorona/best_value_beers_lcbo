@@ -1,13 +1,23 @@
-                                                        Name  Rating  Price         Format
-Category                                                                                  
-Belgian                                      Chimay Premiere  3.90/5   9.90  750 mL bottle
-Bock                            Paulaner Salvator Doppelbock  3.72/5   3.80     500 mL can
-Cider       Brickworks Ciderhouse Stadium Island Peach Cider  3.61/5   3.60     473 mL can
-IPA           Great Lakes Brewery Octopus Wants To Fight IPA  3.95/5   3.55     473 mL can
-Lager                    Four Fathers Brewing Shevchenko 9 +  3.56/5   3.25     473 mL can
-Other                                       Henderson's Best  3.57/5   3.10     473 mL can
-Pale Ale                Great Lakes Brewery  Canuck Pale Ale  3.66/5   2.85     473 mL can
-Pilsner     Indie Ale House Marco Polo Italian Style Pilsner  3.65/5   3.45     473 mL can
-Sour                         Collective Arts Jam up the Mash  3.93/5   3.70     473 mL can
-Stout                        Innis & Gunn Irish Whiskey Cask  3.74/5   3.35     500 mL can
-Wheat Beer                        Hacker Pschorr Weisse Bier  3.79/5   3.30     500 mL can
+                                                          Name  Rating  Price         Format
+Belgian    1                                   Chimay Premiere  3.90/5   9.90  750 mL bottle
+           2                                   Chimay Blue Cap  4.10/5   4.85  330 mL bottle
+Bock       1                      Paulaner Salvator Doppelbock  3.72/5   3.80     500 mL can
+           2                         Doppel Hirsch Doppel Bock  3.57/5   4.10    500 mL gift
+Cider      1  Brickworks Ciderhouse Stadium Island Peach Cider  3.61/5   3.60     473 mL can
+           2       Brickworks Ciderhouse Raspberry Peach Cider  3.53/5   3.60     473 mL can
+IPA        1    Great Lakes Brewery Octopus Wants To Fight IPA  3.95/5   3.55     473 mL can
+           2                              Amsterdam Boneshaker  3.76/5   3.35     473 mL can
+Lager      1               Four Fathers Brewing Shevchenko 9 +  3.56/5   3.25     473 mL can
+           2                                    Hofbrau Dunkel  3.61/5   3.55  500 mL bottle
+Other      1                                  Henderson's Best  3.57/5   3.10     473 mL can
+           2                          Stiegl Grapefruit Radler  3.61/5   3.45     500 mL can
+Pale Ale   1              Great Lakes Brewery  Canuck Pale Ale  3.66/5   2.85     473 mL can
+           2                            Sierra Nevada Pale Ale  3.79/5   3.60     473 mL can
+Pilsner    1  Indie Ale House Marco Polo Italian Style Pilsner  3.65/5   3.45     473 mL can
+           2                  Henderson's FIGO Italian Pilsner  3.59/5   3.60     473 mL can
+Sour       1                   Collective Arts Jam up the Mash  3.93/5   3.70     473 mL can
+           2                        Collective Arts Guava Gose  3.78/5   3.95     473 mL can
+Stout      1                   Innis & Gunn Irish Whiskey Cask  3.74/5   3.35     500 mL can
+           2                                  Guinness Draught  3.64/5   3.80     500 mL can
+Wheat Beer 1                  Spearhead Brewing Queen of Wheat  3.99/5   3.45     473 mL can
+           2                        Hacker Pschorr Weisse Bier  3.79/5   3.30     500 mL can

@@ -10,17 +10,17 @@ beer_dict = config["beer_dict"]
 # Load the inventory data
 df = pd.read_csv("D:\\Users\\nickl\\Downloads\\LCBO_store_inventory.csv")
 
-# Extract can and size information
-df[["cans", "size"]] = df["Format"].str.split("x", expand=True)
+# Extract can and Size information
+df[["cans", "Size"]] = df["Format"].str.split("x", expand=True)
 
 # Clean up the cans column
-df["cans"] = df["cans"].str.extract("(\d+)").fillna(1).astype(float)
+df["cans"] = df["cans"].str.extract(r"(\d+)").fillna(1).astype(float)
 
-# Clean up the size column
-df["size"] = df["size"].str.extract("(\d+)").fillna(df["cans"]).astype(int)
+# Clean up the Size column
+df["Size"] = df["Size"].str.extract(r"(\d+)").fillna(df["cans"]).astype(int)
 
 # Calculate total volume
-df["volume"] = df["cans"] * df["size"]
+df["volume"] = df["cans"] * df["Size"]
 
 # Clean up the Price column and convert it to float
 df["Price"] = df["Price"].str.replace("$", "").str.split("\n").str[0].astype(float)
@@ -44,8 +44,17 @@ df["Category"] = df["Style"].apply(
     lambda x: next((k for k, v in beer_dict.items() if x in v), "Other")
 )
 
-# Select the highest value beer in each category
-df = df.sort_values("value", ascending=False).groupby("Category").first()
+# Get the top 2 beers for each category
+df = df.groupby("Category").apply(lambda x: x.nlargest(2, "value"))
+
+# Create a new multi-index where the second level is a rank within each category
+df.index = pd.MultiIndex.from_tuples(
+    [
+        (category, rank + 1)
+        for category in df.index.get_level_values(0).unique()
+        for rank in range(2)
+    ]
+)
 
 # Filter the DataFrame to include only the necessary columns
 df = df[["Name", "Rating", "Price", "Format"]]
