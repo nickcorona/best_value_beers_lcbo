@@ -9,6 +9,15 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+import configparser
+
+# Read the configuration file
+config = configparser.ConfigParser()
+config.read("config.ini")
+
+# Get the store number
+store_number = config.get("DEFAULT", "store_number")
+
 
 # Centralize selectors
 SELECTORS = {
@@ -49,7 +58,7 @@ chrome_options.add_experimental_option(
 driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
 
 # Load webpage
-driver.get("https://lcbo.watch/store-inventory/568")
+driver.get(f"https://lcbo.watch/store-inventory/{store_number}")
 
 # Wait for the page to load completely
 wait = WebDriverWait(driver, 20)
