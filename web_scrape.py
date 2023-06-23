@@ -1,3 +1,4 @@
+import configparser
 import os
 import shutil
 import time
@@ -8,8 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-import configparser
+from selenium.webdriver.support.wait import WebDriverWait
 
 # Read the configuration file
 config = configparser.ConfigParser()
