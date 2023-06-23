@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>595 Bay - LCBO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 1.5em;  /* reduce title size */
+            margin-bottom: 20px;
+        }
+        table {
+            width: 80%;
+            border-collapse: separate;
+            border-spacing: 10px 0;
+            margin: auto;
+        }
+        th, td {
+            font-size: 0.8em;  /* decrease font size */
+            padding: 5px 10px;  /* decrease padding */
+        }
+        th {
+            font-weight: bold;
+            border-bottom: 1px solid black;
+        }
+        th.type, th.name, th.format {
+            text-align: left;
+        }
+        th.rank, th.rating, th.price {
+            text-align: right;
+        }
+        td.number, td.rating, td.price {
+            text-align: right;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>595 Bay LCBO Store Inventory</h1>
+    <table id="table">
+        <thead>
+            <tr>
+                <th class="type">Type</th>
+                <th class="rank">Rank</th>
+                <th class="name">Name</th>
+                <th class="rating">Rating</th>
+                <th class="price">Price</th>
+                <th class="format">Format</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Table data will go here -->
+        </tbody>
+    </table>
+    <script>
+        fetch('LCBO_store_inventory.csv')
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split('\n');
+                const tableBody = document.getElementById('table-body');
+                let prevType = '';
+                for (let i = 1; i < lines.length; i++) { // skip the header line
+                    const row = document.createElement('tr');
+                    const cells = lines[i].split(',');
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = cells[j];
+                        const td = document.createElement('td');
+                        if (j === 1 || j === 3 || j === 4) { // it's a "Number", "Rating", or "Price" cell
+                            td.className = j === 1 ? 'number' : (j === 3 ? 'rating' : 'price'); // assign corresponding class
+                        }
+                        if (j === 0) { // If it's a "Type" cell
+                            if (cell !== prevType) { // If it's a new type
+                                td.textContent = cell;
+                                prevType = cell;
+                            }
+                        } else {
+                            td.textContent = cell;
+                        }
+                        row.appendChild(td);
+                    }
+                    tableBody.appendChild(row);
+                }
+            });
+    </script>
+</body>
+</html>

@@ -63,6 +63,7 @@ def lcbo_ratings():
 
     # Filter the DataFrame to include only the necessary columns
     df = df[["Name", "Rating", "Price", "Format"]]
+    df.to_csv("LCBO_store_inventory.csv")
 
     # Print and save the DataFrame
     with open("LCBO_store_inventory.txt", "w") as f:
