@@ -18,7 +18,5 @@ subprocess.call(["python", "lcbo_ratings.py"])
 send_email(
     get_env_var(TO_EMAIL),
     "Best value beers - 595 Bay LCBO",
-    None,
-    None,
-    "LCBO_store_inventory.txt",
+    text_file="LCBO_store_inventory.txt",
 )
