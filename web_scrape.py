@@ -1,7 +1,7 @@
 import os
+import shutil
 import time
 
-import pandas as pd
 from selenium import webdriver
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.chrome.options import Options
@@ -37,6 +37,15 @@ webdriver_service = Service(
 # Set Chrome options
 chrome_options = Options()
 chrome_options.add_argument("--headless")
+chrome_options.add_experimental_option(
+    "prefs",
+    {
+        "download.default_directory": r"D:\Users\nickl\Downloads",
+        "download.prompt_for_download": False,  # To auto download the file
+        "download.directory_upgrade": True,
+        "plugins.always_open_pdf_externally": True,  # To download pdf files
+    },
+)
 driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
 
 # Load webpage
@@ -70,10 +79,8 @@ file_name = max(
 # Destination file path
 destination = os.path.join(download_dir, "LCBO_store_inventory.csv")
 
-# Rename the file
-if os.path.exists(destination):
-    os.remove(destination)
-os.rename(file_name, destination)
+# Rename or overwrite the file
+shutil.move(file_name, destination)
 
 # Close the browser
 driver.quit()
