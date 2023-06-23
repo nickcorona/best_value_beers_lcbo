@@ -36,7 +36,7 @@ webdriver_service = Service(
 
 # Set Chrome options
 chrome_options = Options()
-# chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
 
 # Load webpage
