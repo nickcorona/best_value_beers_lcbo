@@ -4,6 +4,7 @@ import pandas as pd
 
 
 def lcbo_ratings():
+    """Process and rate the beers"""
     # Load the beer categories configuration
     with open("config.json") as config_file:
         config = json.load(config_file)

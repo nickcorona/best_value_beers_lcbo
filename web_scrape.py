@@ -13,6 +13,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def web_scrape_lcbo_store_inventory():
+    """Scrape the LCBO store inventory page and download the CSV file"""
     # Read the configuration file
     config = configparser.ConfigParser()
     config.read("config.ini")
