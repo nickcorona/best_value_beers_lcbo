@@ -12,7 +12,7 @@ def lcbo_ratings():
     beer_dict = config["beer_dict"]
 
     # Load the inventory data
-    df = pd.read_csv("D:\\Users\\nickl\\Downloads\\LCBO_store_inventory.csv")
+    df = pd.read_csv("LCBO_store_inventory.csv")
 
     # Extract can and Size information
     df[["cans", "Size"]] = df["Format"].str.split("x", expand=True)
