@@ -17,13 +17,6 @@ def run_all_processes():
     # Process and rate the beers
     lcbo_ratings()
 
-    # Send an email
-    send_email(
-        get_env_var(TO_EMAIL),
-        "Best value beers - 595 Bay LCBO",
-        text_file="LCBO_store_inventory.txt",
-    )
-
 
 if __name__ == "__main__":
     run_all_processes()

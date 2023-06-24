@@ -61,7 +61,7 @@
         </tbody>
     </table>
     <script>
-        fetch('LCBO_store_inventory.csv')
+        fetch('LCBO_best_value.csv')
             .then(response => response.text())
             .then(data => {
                 const lines = data.split('\n');

@@ -51,7 +51,7 @@ def web_scrape_lcbo_store_inventory():
     chrome_options.add_experimental_option(
         "prefs",
         {
-            "download.default_directory": r"D:\Users\nickl\Downloads",
+            "download.default_directory": os.getcwd(),
             "download.prompt_for_download": False,  # To auto download the file
             "download.directory_upgrade": True,
             "plugins.always_open_pdf_externally": True,  # To download pdf files
@@ -75,7 +75,7 @@ def web_scrape_lcbo_store_inventory():
     time.sleep(5)
 
     # Get the download directory and the file downloaded
-    download_dir = "D:\\Users\\nickl\\Downloads"
+    download_dir = "."
 
     # Get the most recently downloaded .csv file
     file_name = max(
