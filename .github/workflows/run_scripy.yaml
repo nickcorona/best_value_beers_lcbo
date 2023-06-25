@@ -4,9 +4,9 @@ on:
   schedule:
     - cron: '0 0 * * *'  # This will run the script every day at midnight
   workflow_dispatch:  # This is for manual runs
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +24,14 @@ jobs:
 
     - name: Run script
       run: python main.py  # Replace with your actual script
+
+    - name: Commit and push if it's changed
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        message=$(git status --porcelain)
+        if [ -n "${message}" ]; then
+          git commit -m "Update data" -a
+          git push
+        fi
