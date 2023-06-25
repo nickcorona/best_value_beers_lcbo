@@ -63,7 +63,7 @@ def lcbo_ratings():
     )
 
     # Filter the DataFrame to include only the necessary columns
-    df = df[["Name", "Rank", "Price", "Format"]]
+    df = df[["Name", "Rating", "Price", "Format"]]
     df.to_csv("LCBO_best_value.csv")
 
 
