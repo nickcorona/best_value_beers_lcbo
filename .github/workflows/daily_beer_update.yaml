@@ -2,7 +2,7 @@ name: Best value beer update
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # This will run the script every day at midnight
+    - cron: '0 4 * * *'  # This will run the script every day at midnight
   workflow_dispatch:  # This is for manual runs
 
 jobs:
