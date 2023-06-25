@@ -60,7 +60,7 @@ def lcbo_ratings():
         [
             (category, rank + 1)
             for category in df.index.get_level_values(0).unique()
-            for rank in range(2)
+            for rank in range(df.loc[category].shape[0])
         ]
     )
 
