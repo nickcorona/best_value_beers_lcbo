@@ -1,23 +1,23 @@
-,,Name,Rating,Price,Size
-Belgian,1,Leffe Blonde,3.54,18.95,330
-Belgian,2,Chimay Premiere,3.9,9.9,750
-Bock,1,Paulaner Salvator Doppelbock,3.72,3.8,500
-Bock,2,Doppel Hirsch Doppel Bock,3.57,4.1,500
-Cider,1,Brickworks Ciderhouse Stadium Island Peach Cider,3.61,3.6,473
-Cider,2,Brickworks Ciderhouse Raspberry Peach Cider,3.53,3.6,473
-IPA,1,Great Lakes Brewery Octopus Wants To Fight IPA,3.95,3.55,473
-IPA,2,Amsterdam Boneshaker,3.76,3.35,473
-Lager,1,Creemore Springs Premium Lager,3.54,17.5,473
-Lager,2,Four Fathers Brewing Shevchenko 9 +,3.56,3.25,473
-Other,1,Henderson's Best,3.57,3.1,473
-Other,2,Stiegl Grapefruit Radler,3.61,3.45,500
-Pale Ale,1,Great Lakes Brewery  Canuck Pale Ale,3.66,2.85,473
-Pale Ale,2,Sierra Nevada Pale Ale,3.79,3.6,473
-Pilsner,1,Indie Ale House Marco Polo Italian Style Pilsner,3.65,3.45,473
-Pilsner,2,Henderson's FIGO Italian Pilsner,3.59,3.6,473
-Sour,1,Collective Arts Jam up the Mash,3.93,3.7,473
-Sour,2,Collective Arts Guava Gose,3.78,3.95,473
-Stout,1,Innis & Gunn Irish Whiskey Cask,3.74,3.35,500
-Stout,2,Guinness Draught,3.64,24.95,440
-Wheat Beer,1,Spearhead Brewing Queen of Wheat,3.99,3.45,473
-Wheat Beer,2,Hacker Pschorr Weisse Bier,3.79,3.3,500
+,,Name,Rating,Price,Quantity
+Belgian,1,Leffe Blonde,3.54,18.95,6.0
+Belgian,2,Chimay Premiere,3.9,9.9,1.0
+Bock,1,Paulaner Salvator Doppelbock,3.72,3.8,1.0
+Bock,2,Doppel Hirsch Doppel Bock,3.57,4.1,1.0
+Cider,1,Brickworks Ciderhouse Stadium Island Peach Cider,3.61,3.6,1.0
+Cider,2,Brickworks Ciderhouse Raspberry Peach Cider,3.53,3.6,1.0
+IPA,1,Great Lakes Brewery Octopus Wants To Fight IPA,3.95,3.55,1.0
+IPA,2,Amsterdam Boneshaker,3.76,3.35,1.0
+Lager,1,Creemore Springs Premium Lager,3.54,17.5,6.0
+Lager,2,Four Fathers Brewing Shevchenko 9 +,3.56,3.25,1.0
+Other,1,Henderson's Best,3.57,3.1,1.0
+Other,2,Stiegl Grapefruit Radler,3.61,3.45,1.0
+Pale Ale,1,Great Lakes Brewery  Canuck Pale Ale,3.66,2.85,1.0
+Pale Ale,2,Sierra Nevada Pale Ale,3.79,3.6,1.0
+Pilsner,1,Indie Ale House Marco Polo Italian Style Pilsner,3.65,3.45,1.0
+Pilsner,2,Henderson's FIGO Italian Pilsner,3.59,3.6,1.0
+Sour,1,Collective Arts Jam up the Mash,3.93,3.7,1.0
+Sour,2,Collective Arts Guava Gose,3.78,3.95,1.0
+Stout,1,Innis & Gunn Irish Whiskey Cask,3.74,3.35,1.0
+Stout,2,Guinness Draught,3.64,24.95,8.0
+Wheat Beer,1,Spearhead Brewing Queen of Wheat,3.99,3.45,1.0
+Wheat Beer,2,Hacker Pschorr Weisse Bier,3.79,3.3,1.0
