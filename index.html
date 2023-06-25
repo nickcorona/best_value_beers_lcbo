@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
+            background-color: white;
             font-family: 'Roboto', sans-serif;
             padding: 20px;
             display: flex;
@@ -64,22 +65,24 @@
 </head>
 
 <body>
-    <h1>595 Bay LCBO Store Inventory</h1>
-    <table id="table">
-        <thead>
-            <tr>
-                <th class="type">Type</th>
-                <th class="rank">Rank</th>
-                <th class="name">Name</th>
-                <th class="rating">Rating</th>
-                <th class="price">Price</th>
-                <th class="quantity">Format</th>
-            </tr>
-        </thead>
-        <tbody id="table-body">
-            <!-- Table data will go here -->
-        </tbody>
-    </table>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <h1>595 Bay LCBO Store Inventory</h1>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th class="type">Type</th>
+                    <th class="rank">Rank</th>
+                    <th class="name">Name</th>
+                    <th class="rating">Rating</th>
+                    <th class="price">Price</th>
+                    <th class="quantity">Format</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Table data will go here -->
+            </tbody>
+        </table>
+    </div>
     <script>
         fetch('LCBO_best_value.csv')
             .then(response => response.text())
