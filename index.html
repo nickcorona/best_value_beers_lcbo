@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>595 Bay - LCBO</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -11,38 +12,57 @@
             flex-direction: column;
             align-items: center;
         }
+
         h1 {
-            font-size: 1.5em;  /* reduce title size */
+            font-size: 1.5em;
+            /* reduce title size */
             margin-bottom: 20px;
         }
+
         table {
             width: 80%;
             border-collapse: separate;
             border-spacing: 10px 0;
             margin: auto;
         }
-        th, td {
-            font-size: 0.8em;  /* decrease font size */
-            padding: 5px 10px;  /* decrease padding */
+
+        th,
+        td {
+            font-size: 0.8em;
+            /* decrease font size */
+            padding: 5px 10px;
+            /* decrease padding */
         }
+
         th {
             font-weight: bold;
             border-bottom: 1px solid black;
         }
-        th.type, th.name, th.format {
+
+        th.type,
+        th.name,
+        th.format {
             text-align: left;
         }
-        th.rank, th.rating, th.price {
+
+        th.rank,
+        th.rating,
+        th.price {
             text-align: right;
         }
-        td.number, td.rating, td.price {
+
+        td.number,
+        td.rating,
+        td.price {
             text-align: right;
         }
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
     </style>
 </head>
+
 <body>
     <h1>595 Bay LCBO Store Inventory</h1>
     <table id="table">
@@ -53,7 +73,7 @@
                 <th class="name">Name</th>
                 <th class="rating">Rating</th>
                 <th class="price">Price</th>
-                <th class="format">Format</th>
+                <th class="quantity">Format</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -91,4 +111,5 @@
             });
     </script>
 </body>
+
 </html>
