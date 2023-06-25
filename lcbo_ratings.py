@@ -15,35 +15,37 @@ def lcbo_ratings():
     df = pd.read_csv("LCBO_store_inventory.csv")
 
     # Extract can and Size information
-    df[["cans", "Size"]] = df["Format"].str.split("x", expand=True)
+    df[["Quantity", "Size"]] = df["Format"].str.extract(
+        r"(?:(\d+)?\s*x\s*)?(\d+ mL.*)", expand=True
+    )
 
     # Clean up the cans column
-    df["cans"] = df["cans"].str.extract(r"(\d+)").fillna(1).astype(float)
+    df["Quantity"] = df["Quantity"].str.extract(r"(\d+)").fillna(1).astype(float)
 
     # Clean up the Size column
-    df["Size"] = df["Size"].str.extract(r"(\d+)").fillna(df["cans"]).astype(int)
+    df["Size"] = df["Size"].str.extract(r"(\d+)").fillna(df["Quantity"]).astype(int)
 
     # Calculate total volume
-    df["volume"] = df["cans"] * df["Size"]
+    df["Volume"] = df["Quantity"] * df["Size"]
 
     # Clean up the Price column and convert it to float
     df["Price"] = df["Price"].str.replace("$", "").str.split("\n").str[0].astype(float)
 
     # Calculate price per volume
-    df["dollar_per_volume"] = df["Price"] / df["volume"]
+    df["dollar_per_volume"] = df["Price"] / df["Volume"]
 
     # Extract ratings and convert them to float
-    df["rating"] = df["Rating"].str.split("/5").str[0].fillna(0).astype(float)
+    df["Rating"] = df["Rating"].str.split("/5").str[0].fillna(0).astype(float)
 
     # Apply a minimum rating threshold
     min_rating = 3.5  # Adjust this to a value that you think is a fair minimum
-    df = df[df["rating"] >= min_rating]
+    df = df[df["Rating"] >= min_rating]
 
     # Define value metric and calculate it
     weight = (
         2  # You can adjust this value to give more or less importance to the rating
     )
-    df["value"] = (df["rating"] ** weight) / df["dollar_per_volume"]
+    df["value"] = (df["Rating"] ** weight) / df["dollar_per_volume"]
 
     # Map beer types to categories
     df["Category"] = df["Style"].apply(
@@ -63,7 +65,7 @@ def lcbo_ratings():
     )
 
     # Filter the DataFrame to include only the necessary columns
-    df = df[["Name", "Rating", "Price", "Format"]]
+    df = df[["Name", "Rating", "Price", "Size"]]
     df.to_csv("LCBO_best_value.csv")
 
 
