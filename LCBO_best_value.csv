@@ -1,8 +1,14 @@
 ,,Name,Rating,Price,Quantity
 Belgian,1,Leffe Blonde,3.54,18.95,6.0
+<<<<<<< HEAD
 Belgian,2,Chimay Premiere,3.9,9.9,1.0
 Belgian,3,Chimay Blue Cap,4.1,4.85,1.0
 Bock,1,Doppel Hirsch Doppel Bock,3.57,4.1,1.0
+=======
+Belgian,2,Chimay Premiere,3.9,9.95,1.0
+Bock,1,Paulaner Salvator Doppelbock,3.72,3.8,1.0
+Bock,2,Doppel Hirsch Doppel Bock,3.57,4.1,1.0
+>>>>>>> 1a163eb2da2720c57cf6e143bc6484488e027f72
 Cider,1,Brickworks Ciderhouse Stadium Island Peach Cider,3.61,3.6,1.0
 Cider,2,Brickworks Ciderhouse Raspberry Peach Cider,3.53,3.6,1.0
 Cider,3,Thornbury Craft Strong Apple Cider,3.59,3.85,1.0
@@ -16,8 +22,12 @@ Other,1,Henderson's Best,3.57,3.1,1.0
 Other,2,Stiegl Grapefruit Radler,3.61,3.45,1.0
 Other,3,Beau's Lug Tread,3.52,18.95,6.0
 Pale Ale,1,Great Lakes Brewery  Canuck Pale Ale,3.66,2.85,1.0
+<<<<<<< HEAD
 Pale Ale,2,Sierra Nevada Pale Ale,3.79,3.6,1.0
 Pale Ale,3,Whitewater Brewing North Meets South Nordic Pale Ale,3.68,3.55,1.0
+=======
+Pale Ale,2,Spearhead Hawaiian Style Pale Ale,3.68,3.15,1.0
+>>>>>>> 1a163eb2da2720c57cf6e143bc6484488e027f72
 Pilsner,1,Indie Ale House Marco Polo Italian Style Pilsner,3.65,3.45,1.0
 Pilsner,2,Henderson's FIGO Italian Pilsner,3.59,3.6,1.0
 Pilsner,3,Omnipollo Prize Pils,3.5,3.95,1.0
