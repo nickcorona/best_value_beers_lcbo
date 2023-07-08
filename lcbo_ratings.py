@@ -1,16 +1,14 @@
 import json
-
 import pandas as pd
 
 
-def lcbo_ratings():
-    """Process and rate the beers"""
-    # Load the beer categories configuration
+def load_config():
     with open("config.json") as config_file:
         config = json.load(config_file)
+    return config["beer_dict"]
 
-    beer_dict = config["beer_dict"]
 
+def load_and_prepare_data(beer_dict):
     # Load the inventory data
     df = pd.read_csv("LCBO_store_inventory.csv")
 
@@ -52,8 +50,16 @@ def lcbo_ratings():
         lambda x: next((k for k, v in beer_dict.items() if x in v), "Other")
     )
 
+    return df
+
+
+def lcbo_ratings():
+    """Process and rate the beers"""
+    beer_dict = load_config()
+    df = load_and_prepare_data(beer_dict)
+
     # Get the top 2 beers for each category
-    df = df.groupby("Category").apply(lambda x: x.nlargest(2, "value"))
+    df = df.groupby("Category").apply(lambda x: x.nlargest(3, "value"))
 
     # Create a new multi-index where the second level is a rank within each category
     df.index = pd.MultiIndex.from_tuples(
@@ -67,6 +73,7 @@ def lcbo_ratings():
     # Filter the DataFrame to include only the necessary columns
     df = df[["Name", "Rating", "Price", "Quantity"]]
     df.to_csv("LCBO_best_value.csv")
+    print(df)
 
 
 if __name__ == "__main__":
