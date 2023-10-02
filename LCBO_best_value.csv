@@ -2,6 +2,7 @@
 Belgian,1,Leffe Blonde,3.54,18.95,6.0
 Belgian,2,Chimay Premiere,3.9,9.95,1.0
 Belgian,3,Chimay Blue Cap,4.1,4.95,1.0
+<<<<<<< HEAD
 Bock,1,Einbecker 1378,3.51,2.75,1.0
 Cider,1,Kw Craft Cider Wild Cherry,3.74,3.6,1.0
 Cider,2,Brickworks Ciderhouse Stadium Island Peach Cider,3.61,3.6,1.0
@@ -28,5 +29,34 @@ Stout,1,Guinness Draught,3.64,26.95,8.0
 Stout,2,Guinness Draught,3.64,3.9,1.0
 Stout,3,Guinness Draught,3.64,13.9,4.0
 Wheat Beer,1,Hacker Pschorr Weisse Bier,3.79,3.05,1.0
+=======
+Bock,1,Paulaner Salvator Doppelbock,3.72,3.75,1.0
+Bock,2,Einbecker 1378,3.51,2.75,1.0
+Cider,1,No Boats On Sunday Peach Cider,3.62,3.35,1.0
+Cider,2,Brickworks Ciderhouse Stadium Island Peach Cider,3.61,3.6,1.0
+Cider,3,Brickworks Ciderhouse Raspberry Peach Cider,3.53,3.6,1.0
+IPA,1,Great Lakes Brewery Octopus Wants To Fight IPA,3.95,3.55,1.0
+IPA,2,Amsterdam Neon Haze Hazy IPA,3.75,3.35,1.0
+IPA,3,Boneshaker IPA,3.76,20.45,6.0
+Lager,1,Four Fathers Brewing Shevchenko 9 +,3.56,3.25,1.0
+Lager,2,Hofbrau Dunkel,3.61,3.55,1.0
+Lager,3,Creemore Springs Premium Lager,3.54,19.5,6.0
+Other,1,Beau's Lug Tread,3.52,19.95,6.0
+Other,2,Henderson x Rush Canadian Golden Ale,3.54,3.4,1.0
+Other,3,Stiegl Grapefruit Radler,3.61,3.75,1.0
+Pale Ale,1,Spearhead Hawaiian Style Pale Ale,3.68,3.15,1.0
+Pale Ale,2,Great Lakes Brewery  Canuck Pale Ale,3.66,3.15,1.0
+Pale Ale,3,Sierra Nevada Pale Ale,3.79,3.6,1.0
+Pilsner,1,Henderson's FIGO Italian Pilsner,3.59,3.6,1.0
+Pilsner,2,Wellington Brewery Fine Italian Style Pilsner,3.67,3.85,1.0
+Pilsner,3,Indie Ale House Marco Polo Italian Style Pilsner,3.65,3.9,1.0
+Sour,1,Collective Arts Jam up the Mash,3.93,3.95,1.0
+Sour,2,Collective Arts Guava Gose,3.78,3.95,1.0
+Sour,3,Flying Monkeys Velvet Bubble Lord Blueberry Sour,3.73,3.95,1.0
+Stout,1,Innis & Gunn Irish Whiskey Cask,3.74,3.35,1.0
+Stout,2,Guinness Draught,3.64,3.55,1.0
+Stout,3,Guinness Draught,3.64,26.95,8.0
+Wheat Beer,1,Hacker Pschorr Weisse Bier,3.79,3.1,1.0
+>>>>>>> a5b83798959de569aa0ff065d3d410f14cf88149
 Wheat Beer,2,Spearhead Brewing Queen of Wheat,3.99,3.45,1.0
 Wheat Beer,3,Paulaner Hefe-Weissbier,3.81,3.5,1.0
